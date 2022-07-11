@@ -11,8 +11,17 @@
     <script type="text/javascript">
       async function main(){
         let pyodide = await loadPyodide();
+        await pyodide.loadPackage("micropip");
+        await pyodide.runPython(`
+            import micropip
+            micropip.install('hy==0.20.0')
+        `);
+        await pyodide.runPython(`
+            import hy
+        `);
         console.log(pyodide.runPython(`
             print("Hello, world!")
+            hy.eval(hy.read_str('(print "Hello, world!")'))
         `));
       }
       main();
