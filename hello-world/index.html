@@ -2,10 +2,12 @@
 <html>
   <head>
       <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
   </head>
   <body>
     Hello, world!<br>
-    (check your web dev tools console)
+    (check your js console)
     <script type="text/javascript">
       async function main(){
         let pyodide = await loadPyodide();
