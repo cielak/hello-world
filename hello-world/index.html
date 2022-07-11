@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.19.1/full/pyodide.js"></script>
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>
   </head>
@@ -10,7 +10,9 @@
     (check your js console)
     <script type="text/javascript">
       async function main(){
-        let pyodide = await loadPyodide();
+        let pyodide = await loadPyodide({
+            indexURL : "https://cdn.jsdelivr.net/pyodide/v0.19.1/full/"
+        });
         await pyodide.loadPackage("micropip");
         await pyodide.runPython(`
             import micropip
